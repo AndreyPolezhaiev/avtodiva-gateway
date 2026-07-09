@@ -1,0 +1,16 @@
+services:
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "${LOCAL_PORT}:${DOCKER_PORT}"
+      - "${HTTPS_PORT}:${HTTPS_DOCKER_PORT}"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./certbot/www:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    networks:
+      - your-app-network
+
+networks:
+  your-app-network:
+    external: true
