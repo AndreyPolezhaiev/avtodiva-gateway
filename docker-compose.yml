@@ -9,8 +9,8 @@ services:
       - ./certbot/www:/var/www/certbot
       - /etc/letsencrypt:/etc/letsencrypt:ro
     networks:
-      - your-app-network
+      - avtodiva-network
 
 networks:
-  your-app-network:
+  avtodiva-network:
     external: true
